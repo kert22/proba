@@ -7,24 +7,48 @@
         Szeretlek Tobby!</title>
     <link rel="stylesheet"
             href=".github/style.css">
-        <style>
+  <style>
+        /* Az oldal teljes magasságú legyen, és flexbox-ot használjon */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center; /* Vízszintes középre igazítás */
+            align-items: center;     /* Függőleges középre igazítás */
+            flex-direction: column;  /* Tartalmak egymás alatti elrendezése */
+        }
+
+        /* Nagyobb méret és animáció a szívhez */
         .heart {
             color: red;
-            font-size: 50px;
+            font-size: 100px; /* Nagyobb szív méret */
+            animation: rotateHeart 2s infinite linear; /* Forgás animáció */
+        }
+
+        /* Definiáljuk a forgás animációját */
+        @keyframes rotateHeart {
+            from {
+                transform: rotate(0deg); /* Kezdő pozíció */
+            }
+            to {
+                transform: rotate(360deg); /* Teljes kör */
+            }
         }
     </style>
+        
 </head>
 <body>
     <h1>Szia Tobby</h1>
     <script src="script.js"></script>
     <p>Szeretősözlek kicsi manom</p>
-   <button onclick="showHeart()">Mutass egy szívet</button>
+    <button id="showHeartButton">Mutass egy szívet</button>
     <div id="heartContainer"></div>
 
     <script>
-        function showHeart() {
-            document.getElementById('heartContainer').innerHTML = '❤️';
-        }
+        document.getElementById('showHeartButton').addEventListener('click', function() {
+            // Hozzáadunk egy nagyobb és forgó piros szívet a heartContainer elemhez
+            document.getElementById('heartContainer').innerHTML = '<span class="heart">❤️</span>';
+        });
     </script>
 </body>
 </html>
