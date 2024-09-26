@@ -6,17 +6,25 @@
     <title>
         Szeretlek Tobby!</title>
     <link rel="stylesheet"
-            href=".github/style.css"
+            href=".github/style.css">
+        <style>
+        .heart {
+            color: red;
+            font-size: 50px;
+        }
+    </style>
 </head>
 <body>
     <h1>Szia Tobby</h1>
     <script src="script.js"></script>
     <p>Szeretősözlek kicsi manom</p>
-    <button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
+    button onclick="showHeart()">Mutass egy szívet</button>
+    <div id="heartContainer"></div>
 
-
-<p id="demo"></p>
+    <script>
+        function showHeart() {
+            document.getElementById('heartContainer').innerHTML = '❤️';
+        }
+    </script>
 </body>
 </html>
