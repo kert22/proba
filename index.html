@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Szeretlek Tobby!</title>
+    <title>❤️</title> 
     <link rel="stylesheet"
             href=".github/style.css">
   <style>
@@ -44,7 +43,28 @@
     <p>Szeretősözlek kicsi manom</p>
     <button id="showHeartButton">Klikkelj ide ha merszt</button>
     <div id="heartContainer"></div>
+<button id="startRotationButton">Kezdd el forgatni a szívet</button>
 
+    <script>
+        // Szívek különböző forgatott verziói (egyszerű szimuláció Unicode karakterekkel)
+        const hearts = ['❤️', '💔', '❣️', '💕', '💖', '💘'];
+
+        // Változó az aktuális szív pozíció követésére
+        let currentHeartIndex = 0;
+        let rotationInterval;
+
+        // A forgás elindítása a title-ben
+        document.getElementById('startRotationButton').addEventListener('click', function() {
+            if (!rotationInterval) { // Ha még nem fut az animáció
+                rotationInterval = setInterval(() => {
+                    // Állítsuk be az aktuális szívet a title-ben
+                    document.title = hearts[currentHeartIndex];
+                    // Lépjünk a következő szívre
+                    currentHeartIndex = (currentHeartIndex + 1) % hearts.length;
+                }, 500); // 500 ms-ként váltogatjuk a szíveket
+            }
+        });
+    </script>
     <script>
         document.getElementById('showHeartButton').addEventListener('click', function() {
             // Hozzáadunk egy nagyobb és forgó piros szívet a heartContainer elemhez
